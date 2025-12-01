@@ -6,15 +6,14 @@ public class Dia1 : ISolucionador
 {
     public string SolucaoParte1(string input)
     {
-        Dial dial = new Dial(input);
+        Dial dial = new(input);
 
         return dial.Cliques.ToString();
     }
 
     public string SolucaoParte2(string input)
     {
-        //input = "L68\nL30\nR48\nL5\nR60\nL55\nL1\nL99\nR14\nL82";
-        Dial dial = new Dial(input, contaCaminhos: true);
+        Dial dial = new(input, contaCaminhos: true);
 
         return (dial.Cliques).ToString();
     }

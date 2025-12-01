@@ -4,7 +4,7 @@ using AOC24.Solucoes;
 using Spectre.Console;
 using Spectre.Console.Rendering;
 
-namespace AOC24.Utils;
+namespace AOC25.Core;
 
 public class GerenciadorDeSolucoes
 {

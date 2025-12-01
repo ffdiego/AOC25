@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 
-namespace AOC24.Utils;
+namespace AOC25.Core;
 
 public class AOCClient : IDisposable
 {

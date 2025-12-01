@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using AOC24.Utils;
+using AOC25.Core;
 
 
 internal class Program
