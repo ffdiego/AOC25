@@ -11,7 +11,6 @@ public class Dia3 : ISolucionador
         {
             var lista = Parser.ListaDeIntsDeUnicoDigito(linha);
             var maior = MaiorNumeroComNDigitos(lista, 2);
-            var maior2 = MaiorNumeroComNDigitos(linha, 2);
 
             return maior;
         });
@@ -25,7 +24,7 @@ public class Dia3 : ISolucionador
         var soma = input.Split('\n').Sum(linha =>
         {
             var lista = Parser.ListaDeIntsDeUnicoDigito(linha);
-            var maior = MaiorNumeroComNDigitos(linha, 12);
+            var maior = MaiorNumeroComNDigitos(lista, 12);
 
             return maior;
         });
