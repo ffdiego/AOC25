@@ -41,14 +41,6 @@ public class Dia1 : ISolucionador
             }
         }
 
-        public Dial(string input, bool contaCaminhos = false)
-        {
-            foreach (var linha in Parser.LinhasDeTexto(input))
-            {
-                Rotacionar(linha, contaCaminhos);
-            }
-        }
-
         public void Rotacionar(string input, bool contaCaminhos)
         {
             Action rotacionar = (input[0] == 'R') ? R : L;
@@ -69,6 +61,14 @@ public class Dia1 : ISolucionador
                 Cliques++;
             }
         }
-        
+
+        public Dial(string input, bool contaCaminhos = false)
+        {
+            foreach (var linha in Parser.LinhasDeTexto(input))
+            {
+                Rotacionar(linha, contaCaminhos);
+            }
+        }
+
     }
 }

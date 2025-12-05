@@ -13,7 +13,7 @@ internal class Program
             .BuildServiceProvider();
         
         var app = serviceProvider.GetRequiredService<Application>();
-        await app.Run("1");
+        await app.Run();
     }
 }
 
@@ -26,7 +26,7 @@ internal class Application
         this.gerenciadorDeSolucoes = gerenciadorDeInput;
     }
 
-    public async Task Run(string? arg) 
+    public async Task Run(string? arg = null) 
     {
         List<int> diasARodar = [];
 

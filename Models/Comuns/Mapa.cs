@@ -79,4 +79,27 @@ internal class Mapa
 
         return coordenadas;
     }
+
+    public IEnumerable<(int x, int y)> PosicoesAdjacentes(int x, int y)
+    {
+        foreach (int dx in range)
+        {
+            foreach (int dy in range)
+            {
+                if (dx == 0 && dy == 0)
+                {
+                    continue;
+                }
+
+                (int x, int y)pos = ((x + dx), (y + dy));
+
+                if (EstaDentroDoMapa(pos.x, pos.y))
+                {
+                    yield return pos;
+                }
+            }
+        }
+    }
+
+    private static int[] range = [-1, 0, 1];
 }
