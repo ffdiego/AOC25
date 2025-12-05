@@ -46,6 +46,8 @@ internal class Mapa
         return mapa[y][x];
     }
 
+    public void RemoveItem((int x, int y) pos) => this.mapa[pos.y][pos.x] = this.vazio;
+
     public void TrocaItem((int x, int y)pos1, (int x, int y) pos2)
     {
         (mapa[pos1.y][pos1.x], mapa[pos2.y][pos2.x]) = (mapa[pos2.y][pos2.x], mapa[pos1.y][pos1.x]);
