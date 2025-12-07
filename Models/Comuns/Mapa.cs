@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace AOC25.Models.Comuns;
 
-internal class Mapa
+public class Mapa
 {
     protected List<List<char>> mapa;
     protected char vazio;
-    protected int Altura => this.mapa.Count;
-    protected int Largura => this.mapa[0].Count;
+    public int Altura => this.mapa.Count;
+    public int Largura => this.mapa[0].Count;
 
     public Mapa(List<List<char>> mapa, char vazio = '.')
     {
@@ -21,10 +21,10 @@ internal class Mapa
         this.vazio = vazio;
     }
 
-    public Mapa(string entrada)
+    public Mapa(string entrada, char vazio = '.')
     {
         this.mapa = Parser.MatrizDeChars(entrada);
-        this.vazio = '.';
+        this.vazio = vazio;
     }
 
     protected Mapa()

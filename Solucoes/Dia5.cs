@@ -25,7 +25,7 @@ public class ListaIngredientes
             .ToList();
     }
 
-    public int QuantidadeFrescos()
+    public int QuantidadeVerificadosFrescos()
     {
         int frescos = 0;
 
@@ -39,6 +39,35 @@ public class ListaIngredientes
 
         return frescos;
     }
+
+    public int QuantidadeFrescos()
+    {
+        int frescos = 0;
+
+        HashSet<(long, long)> olhados = [];
+        HashSet<(long, long)> rangesUnicos = [];
+
+        foreach (var range in rangeIngredientesFrescos.OrderBy(r => r.menor))
+        {
+            if (olhados.Contains(range))
+            {
+                continue;
+            }
+
+            var rangesInterceptam = rangeIngredientesFrescos
+                .Where(r => (r.menor <= range.maior && r.menor >= range.menor))
+                .Where(r => !olhados.Contains(r)).ToList();
+
+            foreach (var item in rangesInterceptam)
+            {
+                olhados.Add(item);
+            }
+
+            rangesUnicos.Add((range.menor, rangesInterceptam.Max(r => r.maior)));
+        }
+
+        return frescos;
+    }
 }
 
 public class Dia5 : ISolucionador
@@ -47,11 +76,17 @@ public class Dia5 : ISolucionador
     {
         var listaIngredientes = new ListaIngredientes(input);
 
-        return listaIngredientes.QuantidadeFrescos().ToString();
+        return listaIngredientes.QuantidadeVerificadosFrescos().ToString();
     }
 
     public string SolucaoParte2(string input)
     {
-        return "";
+
+        input = "3-5\r\n10-14\r\n16-20\r\n12-18\r\n\r\n1\r\n5\r\n8\r\n11\r\n17\r\n32".Replace("\r", "");
+
+        var listaIngredientes = new ListaIngredientes(input);
+
+
+        return listaIngredientes.QuantidadeFrescos().ToString();
     }
 }
