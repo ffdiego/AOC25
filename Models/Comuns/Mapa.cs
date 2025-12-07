@@ -46,6 +46,16 @@ public class Mapa
         return mapa[y][x];
     }
 
+    public void SetItem(Posicao posicao, char item)
+    {
+        if (!EstaDentroDoMapa(posicao.X, posicao.Y))
+        {
+            throw new Exception("out of bounds");
+        }
+
+        mapa[posicao.Y][posicao.X] = item;
+    }
+
     public void RemoveItem((int x, int y) pos) => this.mapa[pos.y][pos.x] = this.vazio;
 
     public void TrocaItem((int x, int y)pos1, (int x, int y) pos2)
@@ -102,6 +112,6 @@ public class Mapa
             }
         }
     }
-
+    
     private static int[] range = [-1, 0, 1];
 }
